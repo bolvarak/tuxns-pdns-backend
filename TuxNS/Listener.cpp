@@ -31,7 +31,7 @@ namespace TuxNS
 		// Send the log message
 		Log::notice("Listener is Firing Up!");
 		// Try to start the server
-		if (this->listen("/home/tbrown/tuxns-pdns.sock")) {
+		if (this->listen("/tmp/tuxns-pdns.sock")) {
 			// Send the log message
 			Log::notice("Server is now Listening!");
 		} else {

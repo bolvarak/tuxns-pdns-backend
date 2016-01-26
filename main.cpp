@@ -31,10 +31,10 @@ int main(int intArguments, char* chrArguments[])
 	// Create the database connection
 	QSqlDatabase qsdTuxNS = QSqlDatabase::addDatabase("QPSQL");
 	// Setup the connection
-	qsdTuxNS.setDatabaseName("databaseName");
+	qsdTuxNS.setDatabaseName("someDatabase");
 	qsdTuxNS.setHostName    ("localhost");
 	qsdTuxNS.setPort        (5432);
-	qsdTuxNS.setUserName    ("userName");
+	qsdTuxNS.setUserName    ("someUsername");
 	qsdTuxNS.setPassword    ("somePasswd");
 	// Try to open the database
 	if (!qsdTuxNS.open()) {
