@@ -13,9 +13,11 @@ All of the SQL files are in ```sql/pg/```
 Make sure to update your database and logging information in ```main.cpp```.  Also if you wish to change the socket path, it is in ```TuxNS/Listener.cpp```
 
 # Compiling
-```cd /path/to/repo```
-```qmake && make```
-```./tuxns-pdns-backend```
+```
+cd /path/to/repo\n
+qmake && make\n
+./tuxns-pdns-backend
+```
 
 # PowerDNS Configuration
 
