@@ -8,7 +8,7 @@ list
 lookup
 ```
 
-## TODO
+# TODO
 - Add in support for the remaining methods, however that is not within the scope of TuxNS
 
 # Prerequisites
