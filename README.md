@@ -16,22 +16,21 @@ Make sure to update your database and logging information in ```main.cpp```.  Al
 ```cd /path/to/repo```
 ```qmake && make```
 ```./tuxns-pdns-backend```
+
 # PowerDNS Configuration
-```
-allow-recursion=127.0.0.1
-cache-ttl=6
-config-dir=/etc
-daemon=yes
-distributor-threads=3
-guardian=yes
-local-port=53
-loglevel=3
-module-dir=/usr/local/lib/pdns # or your path to PDNS modules
-negquery-cache-ttl=60
-setgid=root
-setuid=root
-socket-dir=/var/run
-webserver=no
-launch=remote
-remote-connection-string=unix:path=/tmp/tuxns-pdns.sock,timeout=30000
-```
+```allow-recursion=127.0.0.1```
+```cache-ttl=6```
+```config-dir=/etc```
+```daemon=yes```
+```distributor-threads=3```
+```guardian=yes```
+```local-port=53```
+```loglevel=3```
+```module-dir=/usr/local/lib/pdns # or your path to PDNS modules```
+```negquery-cache-ttl=60```
+```setgid=root```
+```setuid=root```
+```socket-dir=/var/run```
+```webserver=no```
+```launch=remote```
+```remote-connection-string=unix:path=/tmp/tuxns-pdns.sock,timeout=30000```
