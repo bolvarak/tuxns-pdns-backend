@@ -1,6 +1,16 @@
 # tuxns-pdns-backend
 This is the Remote PowerDNS backend that TuxNS uses.  It creates a UNIX socket that PowerDNS will forward requests to that queries a PostgreSQL database for records.
 
+# Supported Methods
+```
+initialize
+list
+lookup
+```
+
+## TODO
+- Add in support for the remaining methods, however that is not within the scope of TuxNS
+
 # Prerequisites
 - PowerDNS compiled with remote backend
 - Qt 5.5+ with SQL plugins
@@ -37,4 +47,10 @@ socket-dir=/var/run
 webserver=no
 launch=remote
 remote-connection-string=unix:path=/tmp/tuxns-pdns.sock,timeout=30000
+```
+
+# Testing the Socket
+Visit https://doc.powerdns.com/md/authoritative/backend-remote/ for query examples and use the following command to connect.
+```
+socat - unix-connect:/tmp/tuxns-pdns.sock
 ```
