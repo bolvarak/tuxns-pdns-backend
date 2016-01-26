@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sql/pg/ByID.sql</file>
+        <file>sql/pg/ByName.sql</file>
+        <file>sql/pg/ByType.sql</file>
+        <file>sql/pg/LogEntry.sql</file>
+        <file>sql/pg/ZoneByID.sql</file>
+        <file>sql/pg/ZoneByName.sql</file>
+    </qresource>
+</RCC>
