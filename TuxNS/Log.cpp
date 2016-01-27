@@ -125,7 +125,7 @@ namespace TuxNS
 		// Set the timestamp
 		QDateTime qdtNow  = QDateTime::currentDateTime();
 		// Create the output string
-		QString strOutput = QString("[%1]%2\t%3\n").arg(strPrefix, qdtNow.toString("yyyy-MM-dd HH:mm:ss t"), strMessage);
+		QString strOutput = QString("%1[%2]\t%3\n").arg(strPrefix, qdtNow.toString("yyyy-MM-dd HH:mm:ss t"), strMessage);
 		// Write the line to the log
 		fleLog.write(strOutput.toLatin1());
 		// Close the file
