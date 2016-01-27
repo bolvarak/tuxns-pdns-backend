@@ -9,6 +9,7 @@ lookup
 ```
 
 # TODO
+- Abstract the configuration details into the filesystem (DB Connection Details, Socket Path, Log File Path, Threads, etc)
 - Add in support for the remaining methods, however that is not within the scope of TuxNS
 
 # Prerequisites
