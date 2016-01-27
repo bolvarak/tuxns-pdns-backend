@@ -8,7 +8,8 @@
 /// TuxNS Namespace //////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
-namespace TuxNS {
+namespace TuxNS
+{
 
 	///////////////////////////////////////////////////////////////////////////
 	/// Constants ////////////////////////////////////////////////////////////
@@ -40,8 +41,7 @@ namespace TuxNS {
 
 	DNS::~DNS()
 	{
-		// Close the database connection
-		// this->mDatabase.close();
+		// TODO
 	}
 
 	///////////////////////////////////////////////////////////////////////////
@@ -72,6 +72,8 @@ namespace TuxNS {
 		QFile fleSQL(strResourcePath);
 		// Open the file
 		if (!fleSQL.open(QFile::ReadOnly)) {
+			// Send the log message
+			Log::fail(QString("SQL Template Read Error! (%1)").arg(fleSQL.errorString()));
 			// Send the fail
 			this->mRequest->getResponse()->errorResponse();
 			// We're done

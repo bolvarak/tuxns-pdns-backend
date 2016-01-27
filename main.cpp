@@ -44,9 +44,9 @@ int main(int intArguments, char* chrArguments[])
 		return 1;
 	}
 	// Instantiate our backend
-	TuxNS::Listener* clsServer = new TuxNS::Listener();
+	TuxNS::Listener* tnsSocket = new TuxNS::Listener();
 	// Await connections
-	clsServer->await();
+	tnsSocket->await();
 	// Return the execution status
 	return qcaTuxNS.exec();
 }
