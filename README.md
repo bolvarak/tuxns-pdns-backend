@@ -12,6 +12,12 @@ lookup
 - Abstract the configuration details into the filesystem (DB Connection Details, Socket Path, Log File Path, Threads, etc)
 - Add in support for the remaining methods, however that is not within the scope of TuxNS
 
+# Use Cases
+- DNS Server tracking without polling logs (RDBMS Style)
+- Provide custom DNS query responses
+- Load balancing a DNS server
+- It's just fun to play with
+
 # Prerequisites
 - PowerDNS compiled with remote backend
 - Qt 5.5+ with SQL plugins
