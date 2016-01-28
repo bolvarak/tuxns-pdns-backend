@@ -56,19 +56,19 @@ namespace TuxNS
 		// Create the list to hold our level prefixes
 		QStringList qslPrefixes;
 		// Check the level
-		if (mLogLevel == 5) {
+		if (intLogLevel == 5) {
 			// Add the notice prefix
 			qslPrefixes.append(PrefixNotice);
-		} else if (mLogLevel >= 4) {
+		} else if (intLogLevel >= 4) {
 			// Add the prefixes
 			qslPrefixes.append(PrefixNotice);
 			qslPrefixes.append(PrefixFail);
-		} else if (mLogLevel >= 3) {
+		} else if (intLogLevel >= 3) {
 			// Add the prefixes
 			qslPrefixes.append(PrefixNotice);
 			qslPrefixes.append(PrefixFail);
 			qslPrefixes.append(PrefixError);
-		} else if (mLogLevel >= 2) {
+		} else if (intLogLevel >= 2) {
 			// Add the prefixes
 			qslPrefixes.append(PrefixNotice);
 			qslPrefixes.append(PrefixFail);
@@ -139,7 +139,7 @@ namespace TuxNS
 		// Create the output string
 		QString strOutput = QString("[TuxNS]%1[%2]\t%3").arg(strPrefix, qdtNow.toString("yyyy-MM-dd HH:mm:ss t"), strMessage);
 		// Write the output
-		std::cout << strOutput.toLatin1().constData() << std::endl;
+		std::cerr << strOutput.toLatin1().constData() << std::endl;
 	}
 
 	///////////////////////////////////////////////////////////////////////////
@@ -149,7 +149,7 @@ namespace TuxNS
 	void Log::debug(QString strMessage)
 	{
 		// Send the message
-		write(strMessage, Log::PrefixError, mLogFacility);
+		write(strMessage, Log::PrefixDebug, mLogFacility);
 	}
 
 	void Log::error(QString strMessage)

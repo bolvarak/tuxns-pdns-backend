@@ -31,7 +31,7 @@ namespace TuxNS
 		// Send the log message
 		Log::notice("Listener is Firing Up!");
 		// Try to start the server
-		if (this->listen("/tmp/tuxns-pdns.sock")) {
+		if (this->listen(Bootstrap::getSetting("socket", "/tmp/tuxns-pdns.sock").toString())) {
 			// Send the log message
 			Log::notice("Server is now Listening!");
 		} else {
@@ -50,8 +50,20 @@ namespace TuxNS
 		Log::notice("New Client!");
 		// Create the connection
 		Connection* clsConnection = new Connection(this);
+		// Connect the slots
+		this->connect(clsConnection, SIGNAL(shutdownCmd()), this, SLOT(shutdown()));
 		// Set the socket descriptor
 		clsConnection->setSocket(this->nextPendingConnection());
+	}
+
+	void TuxNS::Listener::shutdown()
+	{
+		// Send the log message
+		Log::notice("Received Shutdown Request.  Shutting Down.");
+		// Kill the server
+		this->close();
+		// Fire the signal
+		emit this->hasShutdown();
 	}
 
 ///////////////////////////////////////////////////////////////////////////////

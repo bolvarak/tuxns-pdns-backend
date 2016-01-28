@@ -6,6 +6,7 @@
 #include "QtCore/QDebug"
 #include "QtSql/QSqlDatabase"
 #include "TuxNS/Log.hpp"
+#include "TuxNS/Bootstrap.hpp"
 #include "TuxNS/Listener.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -21,32 +22,16 @@
  */
 int main(int intArguments, char* chrArguments[])
 {
-	// Setup the logger
-	TuxNS::Log::setLoggingFacility(TuxNS::Log::Standard);
-	TuxNS::Log::setLogLevel       (TuxNS::Log::Debug);
-	// Create the application
-	QCoreApplication qcaTuxNS(intArguments, chrArguments);
-	// Initialize the resource file
+	// Initialize our SQL templates
 	Q_INIT_RESOURCE(sqlqueries);
-	// Create the database connection
-	QSqlDatabase qsdTuxNS = QSqlDatabase::addDatabase("QPSQL");
-	// Setup the connection
-	qsdTuxNS.setDatabaseName("someDatabase");
-	qsdTuxNS.setHostName    ("localhost");
-	qsdTuxNS.setPort        (5432);
-	qsdTuxNS.setUserName    ("someUsername");
-	qsdTuxNS.setPassword    ("somePasswd");
-	// Try to open the database
-	if (!qsdTuxNS.open()) {
-		// Send the log message
-		TuxNS::Log::fail(QString("Database Connection Error! (%1)").arg(qsdTuxNS.lastError().text()));
+	// Create the application
+	TuxNS::Bootstrap* tnsServer = new TuxNS::Bootstrap(intArguments, chrArguments);
+	// Dispatch the server
+	if (tnsServer->dispatch()) {
+		// Return the main event loop
+		return tnsServer->eventLoop();
+	} else {
 		// We're done
 		return 1;
 	}
-	// Instantiate our backend
-	TuxNS::Listener* tnsSocket = new TuxNS::Listener();
-	// Await connections
-	tnsSocket->await();
-	// Return the execution status
-	return qcaTuxNS.exec();
 }

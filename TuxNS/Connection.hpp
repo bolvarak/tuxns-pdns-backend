@@ -13,6 +13,7 @@
 #include "QtCore/QObject"
 #include "QtCore/QThreadPool"
 #include "QtNetwork/QLocalSocket"
+#include "Bootstrap.hpp"
 #include "Log.hpp"
 #include "Task.hpp"
 
@@ -99,6 +100,19 @@ namespace TuxNS
 			 * @return TuxNS::Connection* this
 			 */
 			Connection* setSocket(int intDescriptor);
+
+		///////////////////////////////////////////////////////////////////////
+		/// Signals //////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////
+
+		signals:
+
+			/**
+			 * @paragraph This signal is fired when a shutdown command is executed
+			 * @brief TuxNS::Connection::shutdownCmd()
+			 * @return void
+			 */
+			void shutdownCmd();
 
 		///////////////////////////////////////////////////////////////////////
 		/// Public Slots /////////////////////////////////////////////////////

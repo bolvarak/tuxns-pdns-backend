@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     TuxNS/Listener.cpp \
     TuxNS/Connection.cpp \
     TuxNS/Task.cpp \
-    TuxNS/Log.cpp
+    TuxNS/Log.cpp \
+    TuxNS/Bootstrap.cpp
 
 HEADERS += \
     TuxNS/PowerDNS/Request.hpp \
@@ -27,7 +28,8 @@ HEADERS += \
     TuxNS/Listener.hpp \
     TuxNS/Connection.hpp \
     TuxNS/Task.hpp \
-    TuxNS/Log.hpp
+    TuxNS/Log.hpp \
+    TuxNS/Bootstrap.hpp
 
 DISTFILES += \
 	sql/Records.sql \
@@ -49,7 +51,8 @@ DISTFILES += \
 	sql/pg/LogEntry.sql \
     sql/pg/ZoneByID.sql \
     sql/pg/ZoneByName.sql \
-    sql/pg/Accounts.sql
+    sql/pg/Accounts.sql \
+    tuxns.conf
 
 RESOURCES += \
 	sqlqueries.qrc
