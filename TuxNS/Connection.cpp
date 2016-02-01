@@ -18,7 +18,7 @@ namespace TuxNS
 	Connection::Connection(QObject* objParent) : QObject(objParent)
 	{
 		// Setup the pool
-		QThreadPool::globalInstance()->setMaxThreadCount(Bootstrap::getSetting("thread-count", 24).toInt());
+		QThreadPool::globalInstance()->setMaxThreadCount(Configuration::get("thread-count", 24).toInt());
 	}
 
 	///////////////////////////////////////////////////////////////////////////
@@ -77,16 +77,6 @@ namespace TuxNS
 		QByteArray qbaRequest = this->mSocket->readAll();
 		// Log the data
 		Log::debug(QString("Received:  %1").arg(QString::fromLatin1(qbaRequest)));
-		Log::debug(QString("Shutdown Key:  %1").arg(Bootstrap::getSetting("shutdown-key", "shutdown now").toString()));
-		// Check for a shutdown command
-		if (QString::fromLatin1(qbaRequest).trimmed() == QString("CMD EXEC %1").arg(Bootstrap::getSetting("shutdown-key", "shutdown now").toString())) {
-			// Kill all running tasks
-			QThreadPool::globalInstance()->clear();
-			// Emit the shutdown signal
-			emit this->shutdownCmd();
-			// We're done
-			return;
-		}
 		// Send the log message
 		Log::notice("Received Payload!");
 		// Instantiate the task

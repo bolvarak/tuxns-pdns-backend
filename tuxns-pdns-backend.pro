@@ -1,36 +1,38 @@
+## Define our Qt requirements
 QT += core network sql
 QT -= gui
-
+## Setup our targets
 CONFIG += c++11
-
-TARGET = tuxns-pdns-backend
+TARGET  = tuxns-pdns-backend
 CONFIG += console
 CONFIG -= app_bundle
-
+## Define the template
 TEMPLATE = app
-
+## Define our source files
 SOURCES += main.cpp \
-    TuxNS/DNS.cpp \
-    TuxNS/PowerDNS/Method.cpp \
-    TuxNS/PowerDNS/Response.cpp \
-    TuxNS/PowerDNS/Request.cpp \
-    TuxNS/Listener.cpp \
-    TuxNS/Connection.cpp \
-    TuxNS/Task.cpp \
-    TuxNS/Log.cpp \
-    TuxNS/Bootstrap.cpp
-
+	TuxNS/DNS.cpp \
+	TuxNS/PowerDNS/Method.cpp \
+	TuxNS/PowerDNS/Response.cpp \
+	TuxNS/PowerDNS/Request.cpp \
+	TuxNS/Listener.cpp \
+	TuxNS/Connection.cpp \
+	TuxNS/Task.cpp \
+	TuxNS/Log.cpp \
+	TuxNS/Bootstrap.cpp \
+    TuxNS/Configuration.cpp
+## Define our header files
 HEADERS += \
-    TuxNS/PowerDNS/Request.hpp \
-    TuxNS/PowerDNS/Method.hpp \
-    TuxNS/PowerDNS/Response.hpp \
-    TuxNS/DNS.hpp \
-    TuxNS/Listener.hpp \
-    TuxNS/Connection.hpp \
-    TuxNS/Task.hpp \
-    TuxNS/Log.hpp \
-    TuxNS/Bootstrap.hpp
-
+	TuxNS/PowerDNS/Request.hpp \
+	TuxNS/PowerDNS/Method.hpp \
+	TuxNS/PowerDNS/Response.hpp \
+	TuxNS/DNS.hpp \
+	TuxNS/Listener.hpp \
+	TuxNS/Connection.hpp \
+	TuxNS/Task.hpp \
+	TuxNS/Log.hpp \
+	TuxNS/Bootstrap.hpp \
+    TuxNS/Configuration.hpp
+## Other files
 DISTFILES += \
 	sql/Records.sql \
 	sql/Domains.sql \
@@ -49,10 +51,10 @@ DISTFILES += \
 	sql/pg/ByName.sql \
 	sql/pg/ByType.sql \
 	sql/pg/LogEntry.sql \
-    sql/pg/ZoneByID.sql \
-    sql/pg/ZoneByName.sql \
-    sql/pg/Accounts.sql \
-    tuxns.conf
+	sql/pg/ZoneByID.sql \
+	sql/pg/ZoneByName.sql \
+	sql/pg/Accounts.sql \
+	tuxns.conf
 
 RESOURCES += \
 	sqlqueries.qrc

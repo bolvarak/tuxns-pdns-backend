@@ -28,9 +28,9 @@ namespace TuxNS
 	const int Log::Debug    = 1;
 	const int Log::Error    = 3;
 	const int Log::Fail     = 4;
-	const int Log::File     = 0x01;
+	const int Log::File     = 1;
 	const int Log::Notice   = 5;
-	const int Log::Standard = 0x02;
+	const int Log::Standard = 2;
 	const int Log::Warn     = 2;
 
 	///////////////////////////////////////////////////////////////////////////

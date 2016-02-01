@@ -26,12 +26,16 @@ namespace TuxNS
 
 	void Listener::await()
 	{
+		// Send the log messagge
+		Log::debug("Removing any existing sockets.");
+		// Remove any existing server
+		QLocalServer::removeServer(Configuration::get("socket", "/tmp/tuxns-pdns-backend.sock").toString());
 		// Setup the permissions
 		this->setSocketOptions(QLocalServer::WorldAccessOption);
 		// Send the log message
 		Log::notice("Listener is Firing Up!");
 		// Try to start the server
-		if (this->listen(Bootstrap::getSetting("socket", "/tmp/tuxns-pdns.sock").toString())) {
+		if (this->listen(Configuration::get("socket", "/tmp/tuxns-pdns-backend.sock").toString())) {
 			// Send the log message
 			Log::notice("Server is now Listening!");
 		} else {
@@ -44,26 +48,22 @@ namespace TuxNS
 	/// Public Slots /////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////
 
-	void TuxNS::Listener::client()
+	void Listener::client()
 	{
 		// Send the log message
 		Log::notice("New Client!");
 		// Create the connection
 		Connection* clsConnection = new Connection(this);
-		// Connect the slots
-		this->connect(clsConnection, SIGNAL(shutdownCmd()), this, SLOT(shutdown()));
 		// Set the socket descriptor
 		clsConnection->setSocket(this->nextPendingConnection());
 	}
 
-	void TuxNS::Listener::shutdown()
+	void Listener::shutdown()
 	{
 		// Send the log message
 		Log::notice("Received Shutdown Request.  Shutting Down.");
 		// Kill the server
 		this->close();
-		// Fire the signal
-		emit this->hasShutdown();
 	}
 
 ///////////////////////////////////////////////////////////////////////////////

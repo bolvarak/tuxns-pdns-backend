@@ -2,19 +2,19 @@
 /// Definitions //////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
-#ifndef TUXNS_TASK_H
-#define TUXNS_TASK_H
+#ifndef TUXNS_CONFIGURATION_H
+#define TUXNS_CONFIGURATION_H
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Headers //////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
-#include "QtCore/QDebug"
+#include "QtCore/QFile"
 #include "QtCore/QObject"
-#include "QtCore/QRunnable"
+#include "QtCore/QSettings"
+#include "QtCore/QString"
+#include "QtCore/QVariant"
 #include "Log.hpp"
-#include "Configuration.hpp"
-#include "DNS.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 /// TuxNS Namespace //////////////////////////////////////////////////////////
@@ -22,12 +22,11 @@
 
 namespace TuxNS
 {
-
 	///////////////////////////////////////////////////////////////////////////
-	/// TuxNS::Task Class Definition /////////////////////////////////////////
+	/// TuxNS::Configuration Class Definition ////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////
 
-	class Task : public QObject, public QRunnable
+	class Configuration : public QObject
 	{
 		///////////////////////////////////////////////////////////////////////
 		/// QObject Classification ///////////////////////////////////////////
@@ -46,22 +45,18 @@ namespace TuxNS
 			/////////////////////////////////////////////////////////////////
 
 			/**
-			 * @paragraph This property contains the request JSON
-			 * @brief TuxNS::Task::mSource
-			 * @var QByteArray
+			 * @paragraph This property contains our settings
+			 * @brief TuxNS::Configuration::mSettings
+			 * @var QSettings*
 			 */
-			QByteArray mSource;
-
-			///////////////////////////////////////////////////////////////////
-			/// Overloaded Methods ///////////////////////////////////////////
-			/////////////////////////////////////////////////////////////////
+			static QSettings* mSettings;
 
 			/**
-			 * @paragraph This method executes the task
-			 * @brief TuxNS::Task::run()
-			 * @return void
+			 * @paragraph This property contains the filepath to our store
+			 * @brief TuxNS::Configuration::mStore
+			 * @var QString
 			 */
-			void run();
+			static QString mStore;
 
 		///////////////////////////////////////////////////////////////////////
 		/// Public Methods & Properties //////////////////////////////////////
@@ -70,59 +65,53 @@ namespace TuxNS
 		public:
 
 			///////////////////////////////////////////////////////////////////
-			/// Constructor //////////////////////////////////////////////////
+			/// Methods //////////////////////////////////////////////////////
 			/////////////////////////////////////////////////////////////////
 
 			/**
-			 * @paragraph This method does nothing, it is simply a placeholder
-			 * @brief TuxNS::Task::Task()
+			 * @paragraph This method initializes the instance store
+			 * @brief TuxNS::Configuration::initialize()
+			 * @param QString strFilePath
+			 * @return bool
 			 */
-			explicit Task();
+			static bool initialize(QString strFilePath = NULL);
 
 			///////////////////////////////////////////////////////////////////
 			/// Getters //////////////////////////////////////////////////////
 			/////////////////////////////////////////////////////////////////
 
 			/**
-			 * @paragraph This method returns the source JSON from the instance
-			 * @brief TuxNS::Task::getSource()
-			 * @return QByteArray TuxNS::Task::mSource
+			 * @paragraph This method retrieves settings from our store
+			 * @brief TuxNS::Configuration::get()
+			 * @param QString strProperty
+			 * @param QVariant qvDefault [QVariant()]
+			 * @return QVariant
 			 */
-			inline QByteArray getSource() { return this->mSource; }
+			static QVariant get(QString strProperty, QVariant qvDefault = QVariant());
 
 			///////////////////////////////////////////////////////////////////
 			/// Setters //////////////////////////////////////////////////////
 			/////////////////////////////////////////////////////////////////
 
 			/**
-			 * @paragraph This method sets the request JSON into the instance
-			 * @brief TuxNS::Task::setSource()
-			 * @param QByteArray qbaJson
-			 * @return TuxNS::Task* this
+			 * @paragraph This method sets a property into our store
+			 * @brief TuxNS::Configuration::set()
+			 * @param QString strProperty
+			 * @param QVariant qvValue
+			 * @return bool
 			 */
-			inline Task* setSource(QByteArray qbaJson) {
-				// Set the request JSON into the instance
-				this->mSource = qbaJson;
-				// We're done
-				return this;
-			}
-
-		///////////////////////////////////////////////////////////////////////
-		/// Signals //////////////////////////////////////////////////////////
-		/////////////////////////////////////////////////////////////////////
-
-		signals:
+			static bool set(QString strProperty, QVariant qvValue);
 
 			/**
-			 * @paragraph This signal fires when this task has finished
-			 * @brief TuxNS::Task::done()
-			 * @param QByteArray qbaJson
-			 * @return void
+			 * @paragraph This method sets the configuration store file path into the class
+			 * @brief TuxNS::Configuration::setStore()
+			 * @param QString strFilePath
+			 * @return bool
 			 */
-			void done(QByteArray qbaJson);
+			static bool setStore(QString strFilePath);
 
 	///////////////////////////////////////////////////////////////////////////
-	}; // End TuxNS::Task Class Definition ///////////////////////////////////
+	}; // End TuxNS::Class Definition ////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
