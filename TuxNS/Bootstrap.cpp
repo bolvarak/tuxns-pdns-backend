@@ -144,21 +144,13 @@ namespace TuxNS
 		));
 		// Add the control options
 		this->mInput->addOption(QCommandLineOption(
-			QStringList() << "s" << "start",
-			QCoreApplication::translate("main", "Start the service")
-		));
-		this->mInput->addOption(QCommandLineOption(
-			QStringList() << "t" << "stop" << "terminate",
-			QCoreApplication::translate("main", "Stop the service")
-		));
-		this->mInput->addOption(QCommandLineOption(
-			QStringList() << "r" << "restart",
-			QCoreApplication::translate("main", "Retart the service")
+			QStringList() << "d" << "daemon",
+			QCoreApplication::translate("main", "This service will be run as a daemon")
 		));
 		// Add the pipe option
 		this->mInput->addOption(QCommandLineOption(
 			QStringList() << "p" << "pipe",
-			QCoreApplication::translate("main", "Read queries from STDIN")
+			QCoreApplication::translate("main", "This service will be a one-off with the query piped through STDIN")
 		));
 	}
 
@@ -166,10 +158,22 @@ namespace TuxNS
 	/// Public Methods ///////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////
 
-	void Bootstrap::pause()
+	bool Bootstrap::daemon()
 	{
-		// Send the log message
-		Log::error("Pausing is not implemented.");
+		// Try to start the server
+		try {
+			// Instantiate our listener
+			this->mListener = new Listener();
+			// Await connections
+			this->mListener->await();
+			// We're done
+			return true;
+		} catch (...) {
+			// Send the log message
+			Log::fail("Server failed to start");
+			// We're done
+			return false;
+		}
 	}
 
 	bool Bootstrap::prepare()
@@ -198,9 +202,9 @@ namespace TuxNS
 			return false;
 		}
 		// Check for a startup command
-		if (this->mInput->isSet("start")) {
+		if (this->mInput->isSet("daemon")) {
 			// Return the start status
-			return this->start();
+			return this->daemon();
 		} else {
 			// Send the log message
 			Log::fail("No valid control command provided.");
@@ -210,49 +214,6 @@ namespace TuxNS
 
 	}
 
-	void Bootstrap::resume()
-	{
-		// Send the log message
-		Log::error("Resuming is not implemented.");
-	}
-
-	bool Bootstrap::start()
-	{
-		// Try to start the server
-		try {
-			// Instantiate our listener
-			this->mListener = new Listener();
-			// Await connections
-			this->mListener->await();
-			// We're done
-			return true;
-		} catch (...) {
-			// Send the log message
-			Log::fail("Server failed to start");
-			// We're done
-			return false;
-		}
-	}
-
-	void Bootstrap::stop()
-	{
-		// Try to stop the server
-		try {
-			// Send the log message
-			Log::debug("Removing Server.");
-			// Remove the server
-			QLocalServer::removeServer(Configuration::get("socket", "/tmp/tuxns-pdns-backend.sock").toString());
-			// Send the log message
-			Log::debug("Closing socket.");
-			// Close the socket
-			this->mListener->close();
-			// Send the log message
-			Log::warn("Service is shutting down!");
-		} catch (...) {
-			// Send the log message
-			Log::fail("Server failed to stop");
-		}
-	}
 
 	///////////////////////////////////////////////////////////////////////////
 	/// Public Slots /////////////////////////////////////////////////////////

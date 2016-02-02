@@ -137,11 +137,11 @@ namespace TuxNS
 			/////////////////////////////////////////////////////////////////
 
 			/**
-			 * @paragraph This method pauses the server
-			 * @brief TuxNS::Bootstrap::pause()
-			 * @return void
+			 * @paragraph This method starts the service as a daemon
+			 * @brief TuxNS::Bootstrap::daemon()
+			 * @return bool
 			 */
-			void pause();
+			bool daemon();
 
 			/**
 			 * @paragraph This method prepares the application for execution
@@ -149,28 +149,6 @@ namespace TuxNS
 			 * @return bool
 			 */
 			bool prepare();
-
-			/**
-			 * @paragraph This method resumes the server
-			 * @brief TuxNS::Bootstrap::restart()
-			 * @return void
-			 */
-			void resume();
-
-			/**
-			 * @paragraph This method starts the server
-			 * @brief TuxNS::Bootstrap::start()
-			 * @return bool
-			 */
-			bool start();
-
-			/**
-			 * @paragraph This method stops the server
-			 * @brief TuxNS::Bootstrap::stop()
-			 * @param bool blnIsRunning [false]
-			 * @return void
-			 */
-			void stop();
 
 			///////////////////////////////////////////////////////////////////
 			/// Getters //////////////////////////////////////////////////////
