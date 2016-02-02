@@ -33,7 +33,7 @@ Make sure to update your database and logging information in ```main.cpp```.  Al
 ```
 cd /path/to/repo
 qmake && make
-./tuxns-pdns-backend
+./tuxns-pdns-backend --help
 ```
 
 # PowerDNS Configuration
@@ -54,6 +54,21 @@ socket-dir=/var/run
 webserver=no
 launch=remote
 remote-connection-string=unix:path=/tmp/tuxns-pdns.sock,timeout=30000
+```
+
+# Systemd Unit File
+```ini
+[Unit]
+Description=TuxNS PowerDNS Remote Backend
+After=network.target powerdns.service
+
+[Service]
+ExecStart=/path/to/tuxns-pdns-backend
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
 ```
 
 # Testing the Socket
