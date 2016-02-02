@@ -63,7 +63,7 @@ Description=TuxNS PowerDNS Remote Backend
 After=network.target powerdns.service
 
 [Service]
-ExecStart=/path/to/tuxns-pdns-backend
+ExecStart=/path/to/tuxns-pdns-backend --config-file /path/to/tuxns.conf --start
 User=root
 Group=root
 
