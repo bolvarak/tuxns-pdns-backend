@@ -37,7 +37,7 @@ qmake && make
 ```
 
 # PowerDNS Configuration
-```
+```ini
 allow-recursion=127.0.0.1
 cache-ttl=6
 config-dir=/etc
