@@ -16,6 +16,7 @@
 #include "QtCore/QFile"
 #include "QtCore/QResource"
 #include "QtCore/QTextStream"
+#include "QtNetwork/QDnsLookup"
 #include "QtNetwork/QHostAddress"
 #include "QtSql/QSqlDatabase"
 #include "QtSql/QSqlDriver"
@@ -83,6 +84,14 @@ namespace TuxNS
 			 * @param QVariant qvListRequest
 			 */
 			void createLogEntry(QVariant qvAccountID, QVariant qvDomainID, QVariant qvRecordID, QHostAddress qhaSource, QVariant qvListRequest);
+
+			/**
+			 * @paragraph This method converts the PowerDNS query type to a QDnsLookup::Type
+			 * @brief TuxNS::DNS::qDnsType()
+			 * @param QString strPdnsType
+			 * @return QDnsLookup::Type
+			 */
+			QDnsLookup::Type qDnsType(QString strPdnsType);
 
 			/**
 			 * @paragraph This method reads a SQL file into a byte array
@@ -255,6 +264,15 @@ namespace TuxNS
 				// We're done
 				return this;
 			}
+
+		///////////////////////////////////////////////////////////////////////
+		/// Signals //////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////
+
+		signals:
+
+
+			
 
 		///////////////////////////////////////////////////////////////////////
 		/// Public Slots /////////////////////////////////////////////////////

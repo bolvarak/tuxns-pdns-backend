@@ -66,6 +66,39 @@ namespace TuxNS
 		qsqLogEntry.finish();
 	}
 
+	QDnsLookup::Type DNS::qDnsType(QString strPdnsType)
+	{
+		// Determine the type
+		if (strPdnsType.toLower() == "a") {            // A (IPv4)
+			// Return the type
+			return QDnsLookup::A;
+		} else if (strPdnsType.toLower() == "aaaa") {  // AAAA (IPv6)
+			// Return the type
+			return QDnsLookup::AAAA;
+		} else if (strPdnsType.toLower() == "cname") { // CNAME
+			// Return the type
+			return QDnsLookup::CNAME;
+		} else if (strPdnsType.toLower() == "mx") {    // MX
+			// Return the type
+			return QDnsLookup::MX;
+		} else if (strPdnsType.toLower() == "ns") {    // NS
+			// Return the type
+			return QDnsLookup::NS;
+		} else if (strPdnsType.toLower() == "ptr") {   // PTR
+			// Return the type
+			return QDnsLookup::PTR;
+		} else if (strPdnsType.toLower() == "srv") {   // SRV
+			// Return the type
+			return QDnsLookup::SRV;
+		} else if (strPdnsType.toLower() == "txt") {   // TXT
+			// Return the type
+			return QDnsLookup::TXT;
+		} else {                                       // Any
+			// Return the type
+			return QDnsLookup::ANY;
+		}
+	}
+
 	QByteArray DNS::readSqlFile(QString strResourcePath)
 	{
 		// Open the SQL file

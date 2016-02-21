@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/Debug/CMakeFiles/tuxns-pdns-backend.dir/qrc_sqlqueries.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/Debug/CMakeFiles/tuxns-pdns-backend.dir/qrc_sqlqueries.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/Debug/tuxns-pdns-backend_automoc.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/Debug/tuxns-pdns-backend_automoc.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/MinSizeRel/CMakeFiles/tuxns-pdns-backend.dir/qrc_sqlqueries.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/MinSizeRel/CMakeFiles/tuxns-pdns-backend.dir/qrc_sqlqueries.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/MinSizeRel/tuxns-pdns-backend_automoc.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/MinSizeRel/tuxns-pdns-backend_automoc.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/RelWithDebInfo/CMakeFiles/tuxns-pdns-backend.dir/qrc_sqlqueries.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/RelWithDebInfo/CMakeFiles/tuxns-pdns-backend.dir/qrc_sqlqueries.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/RelWithDebInfo/tuxns-pdns-backend_automoc.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/RelWithDebInfo/tuxns-pdns-backend_automoc.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/Release/CMakeFiles/tuxns-pdns-backend.dir/qrc_sqlqueries.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/Release/CMakeFiles/tuxns-pdns-backend.dir/qrc_sqlqueries.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/Release/tuxns-pdns-backend_automoc.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion12/system/cmake/generated/ceb6cad1/ceb6cad1/Release/tuxns-pdns-backend_automoc.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Configuration.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Configuration.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Bootstrap.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/DNS.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Task.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Log.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/DNS.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Connection.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/PowerDNS/Response.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/PowerDNS/Response.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/PowerDNS/Method.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/PowerDNS/Request.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/PowerDNS/Method.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/PowerDNS/Request.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Log.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Listener.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Connection.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Bootstrap.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Listener.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TuxNS/Task.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sqlqueries.qrc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/qt/mkspecs/linux-g++" />
+          <root url="file:///usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include" />
+          <root url="file:///usr/local/include" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/qt/mkspecs/linux-g++" />
+          <root url="file:///usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include" />
+          <root url="file:///usr/local/include" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
