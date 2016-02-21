@@ -35,7 +35,7 @@ while(<>) {
 	## Grab the data
 	my @arrParts = split(/\t|\s{2,}/, $_);
 	## Make sure we have the correct number of parts to the query
-	if (@arrParts < 6) {
+	if (scalar(@arrParts) < 6) {
 		## Send the log message
 		print "LOG\tPowerDNS sent a bad query.\n";
 		## Send the fail message
@@ -46,7 +46,7 @@ while(<>) {
 	## Process the query
 	queryTuxNS($arrParts[0], $arrParts[1], $arrParts[2], $arrParts[3], $arrParts[4], $arrParts[5]);
 	## We're done
-    print "END\n";
+	print "END\n";
 }
 ## Result processor
 sub processRecord {
