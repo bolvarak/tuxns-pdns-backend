@@ -12,12 +12,7 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50bc52b4-6999-42ba-b776-68a088130789" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tuxns-pdns-backend.pro" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TuxNS/DNS.cpp" afterPath="$PROJECT_DIR$/TuxNS/DNS.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TuxNS/DNS.hpp" afterPath="$PROJECT_DIR$/TuxNS/DNS.hpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sqlqueries.qrc" afterPath="$PROJECT_DIR$/sqlqueries.qrc" />
-    </list>
+    <list default="true" id="50bc52b4-6999-42ba-b776-68a088130789" name="Default" comment="" />
     <ignored path="tuxns-pdns-backend.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
